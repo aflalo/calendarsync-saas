@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { APP_VERSION } from '../version'
 
 export default function Dashboard() {
   const router = useRouter()
@@ -28,7 +29,7 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 flex flex-col">
       <nav className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900">CalendarSync</h1>
@@ -38,7 +39,7 @@ export default function Dashboard() {
         </div>
       </nav>
 
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="flex-grow max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         <div className="bg-white rounded-lg shadow p-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Welcome back, {user?.email}! 👋</h2>
           <p className="text-gray-600">You are logged in to CalendarSync</p>
@@ -61,6 +62,10 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <footer className="mt-12 text-center text-gray-500 text-sm py-4 border-t border-gray-200">
+        CalendarSync v{APP_VERSION}
+      </footer>
     </main>
   )
 }
